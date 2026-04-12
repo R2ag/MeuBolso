@@ -1,6 +1,6 @@
 package com.meubolso.financeiro.application.usecase;
 
-import com.meubolso.financeiro.application.dto.LancamentoRequest;
+import com.meubolso.financeiro.application.dto.AtualizarLancamentoRequest;
 import com.meubolso.financeiro.application.dto.LancamentoResponse;
 import com.meubolso.financeiro.domain.model.Lancamento;
 import com.meubolso.financeiro.domain.model.LancamentoStatus;
@@ -11,34 +11,46 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
-public class CriarLancamentoUseCase {
+public class EditarLancamentoUseCase {
 
     private final LancamentoRepository lancamentoRepository;
     private final UserContext userContext;
 
-    public CriarLancamentoUseCase(LancamentoRepository lancamentoRepository, UserContext userContext) {
+    public EditarLancamentoUseCase(LancamentoRepository lancamentoRepository, UserContext userContext) {
         this.lancamentoRepository = lancamentoRepository;
         this.userContext = userContext;
     }
 
-    public LancamentoResponse criar(LancamentoRequest request) {
+    public LancamentoResponse editar(UUID id, AtualizarLancamentoRequest request) {
         String userId = userContext.getUserId();
         if (userId == null || userId.isBlank()) {
             throw new IllegalStateException("Usuário não autenticado");
         }
 
-        Lancamento lancamento = new Lancamento(
-                UUID.randomUUID(),
-                userId,
+        Lancamento lancamento = lancamentoRepository.findByIdAndUserId(id, userId)
+                .orElseThrow(() -> new IllegalArgumentException("Lançamento não encontrado"));
+
+        if (lancamento.getStatus() == LancamentoStatus.CONFIRMADO) {
+            if (!lancamento.getValor().equals(request.getValor())) {
+                throw new IllegalStateException("Valor não pode ser alterado após confirmação");
+            }
+            if (!lancamento.getConta().equals(request.getConta())) {
+                throw new IllegalStateException("Conta não pode ser alterada após confirmação");
+            }
+        }
+
+        Lancamento atualizado = new Lancamento(
+                lancamento.getId(),
+                lancamento.getUserId(),
                 request.getDescricao(),
                 request.getValor(),
                 request.getData(),
                 request.getConta(),
                 request.getCategoria(),
-                LancamentoStatus.CONFIRMADO
+                lancamento.getStatus()
         );
 
-        Lancamento salvo = lancamentoRepository.save(lancamento);
+        Lancamento salvo = lancamentoRepository.save(atualizado);
         return new LancamentoResponse(
                 salvo.getId(),
                 salvo.getUserId(),

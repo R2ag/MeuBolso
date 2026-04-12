@@ -1,5 +1,7 @@
 package com.meubolso.financeiro.application.dto;
 
+import com.meubolso.financeiro.domain.model.LancamentoStatus;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -13,11 +15,12 @@ public class LancamentoResponse {
     private LocalDate data;
     private String conta;
     private String categoria;
+    private LancamentoStatus status;
 
     public LancamentoResponse() {
     }
 
-    public LancamentoResponse(UUID id, String userId, String descricao, BigDecimal valor, LocalDate data, String conta, String categoria) {
+    public LancamentoResponse(UUID id, String userId, String descricao, BigDecimal valor, LocalDate data, String conta, String categoria, LancamentoStatus status) {
         this.id = id;
         this.userId = userId;
         this.descricao = descricao;
@@ -25,6 +28,7 @@ public class LancamentoResponse {
         this.data = data;
         this.conta = conta;
         this.categoria = categoria;
+        this.status = status;
     }
 
     public UUID getId() {
@@ -53,5 +57,9 @@ public class LancamentoResponse {
 
     public String getCategoria() {
         return categoria;
+    }
+
+    public LancamentoStatus getStatus() {
+        return status;
     }
 }
