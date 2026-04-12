@@ -72,14 +72,14 @@ Implementar o domínio financeiro essencial para registrar receitas e despesas, 
 Construir pipeline de importação com staging obrigatório antes de criar lançamentos, conforme ADR-011.
 
 ### Itens
-- Implementar upload de arquivo CSV/OFX
-- Criar entidade `Importacao` e `TransacaoStaging`
-- Implementar parsing e normalização de transações
-- Realizar deduplicação de transações
+- [x] Implementar upload de arquivo CSV/OFX
+- [x] Criar entidade `Importacao` e `TransacaoStaging`
+- [x] Implementar parsing e normalização de transações
+- [x] Realizar deduplicação de transações
 - Construir fluxo:
   - arquivo → importacao → staging → classificacao → revisao → lancamento
-- Exibir preview de transações em staging
-- Confirmar importação para gerar lançamentos
+- [x] Exibir preview de transações em staging
+- [x] Confirmar importação para gerar lançamentos
 
 ### Critérios de aceitação
 - Importação salva no staging
