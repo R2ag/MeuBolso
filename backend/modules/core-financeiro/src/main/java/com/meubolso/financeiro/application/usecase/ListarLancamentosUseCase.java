@@ -34,7 +34,8 @@ public class ListarLancamentosUseCase {
                         lancamento.getData(),
                         lancamento.getConta(),
                         lancamento.getCategoria(),
-                        lancamento.getStatus()
+                        lancamento.getStatus(),
+                        lancamento.getTipo()
                 ))
                 .collect(Collectors.toList());
     }

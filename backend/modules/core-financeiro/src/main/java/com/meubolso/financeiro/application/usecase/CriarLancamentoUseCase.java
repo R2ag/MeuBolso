@@ -8,6 +8,7 @@ import com.meubolso.financeiro.domain.repository.LancamentoRepository;
 import com.meubolso.shared.security.UserContext;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Service
@@ -25,6 +26,10 @@ public class CriarLancamentoUseCase {
         String userId = userContext.getUserId();
         if (userId == null || userId.isBlank()) {
             throw new IllegalStateException("Usuário não autenticado");
+        }
+
+        if (request.getValor() == null || request.getValor().compareTo(BigDecimal.ZERO) == 0) {
+            throw new IllegalArgumentException("Valor do lançamento deve ser diferente de zero");
         }
 
         Lancamento lancamento = new Lancamento(
@@ -47,7 +52,8 @@ public class CriarLancamentoUseCase {
                 salvo.getData(),
                 salvo.getConta(),
                 salvo.getCategoria(),
-                salvo.getStatus()
+                salvo.getStatus(),
+                salvo.getTipo()
         );
     }
 }

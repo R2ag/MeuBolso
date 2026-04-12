@@ -2,7 +2,6 @@ package com.meubolso.financeiro.infrastructure.persistence;
 
 import com.meubolso.financeiro.domain.model.Lancamento;
 import com.meubolso.financeiro.domain.repository.LancamentoRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-@Repository
 public class InMemoryLancamentoRepository implements LancamentoRepository {
 
     private final Map<String, List<Lancamento>> storage = new ConcurrentHashMap<>();

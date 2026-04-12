@@ -17,6 +17,34 @@ public class Lancamento {
     private final LancamentoStatus status;
 
     public Lancamento(UUID id, String userId, String descricao, BigDecimal valor, LocalDate data, String conta, String categoria, LancamentoStatus status) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id do lançamento não pode ser nulo");
+        }
+        if (userId == null || userId.isBlank()) {
+            throw new IllegalArgumentException("UserId do lançamento não pode ser vazio");
+        }
+        if (descricao == null || descricao.isBlank()) {
+            throw new IllegalArgumentException("Descrição do lançamento é obrigatória");
+        }
+        if (valor == null) {
+            throw new IllegalArgumentException("Valor do lançamento é obrigatório");
+        }
+        if (valor.compareTo(BigDecimal.ZERO) == 0) {
+            throw new IllegalArgumentException("Valor do lançamento deve ser diferente de zero");
+        }
+        if (data == null) {
+            throw new IllegalArgumentException("Data do lançamento é obrigatória");
+        }
+        if (conta == null || conta.isBlank()) {
+            throw new IllegalArgumentException("Conta do lançamento é obrigatória");
+        }
+        if (categoria == null || categoria.isBlank()) {
+            throw new IllegalArgumentException("Categoria do lançamento é obrigatória");
+        }
+        if (status == null) {
+            throw new IllegalArgumentException("Status do lançamento é obrigatório");
+        }
+
         this.id = id;
         this.userId = userId;
         this.descricao = descricao;
@@ -57,6 +85,10 @@ public class Lancamento {
 
     public LancamentoStatus getStatus() {
         return status;
+    }
+
+    public LancamentoTipo getTipo() {
+        return valor.compareTo(BigDecimal.ZERO) > 0 ? LancamentoTipo.RECEITA : LancamentoTipo.DESPESA;
     }
 
     public Lancamento withDescricao(String descricao) {

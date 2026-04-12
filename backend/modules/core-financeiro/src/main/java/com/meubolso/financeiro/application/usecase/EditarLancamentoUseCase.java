@@ -8,6 +8,7 @@ import com.meubolso.financeiro.domain.repository.LancamentoRepository;
 import com.meubolso.shared.security.UserContext;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Service
@@ -39,6 +40,10 @@ public class EditarLancamentoUseCase {
             }
         }
 
+        if (request.getValor() == null || request.getValor().compareTo(BigDecimal.ZERO) == 0) {
+            throw new IllegalArgumentException("Valor do lançamento deve ser diferente de zero");
+        }
+
         Lancamento atualizado = new Lancamento(
                 lancamento.getId(),
                 lancamento.getUserId(),
@@ -59,7 +64,8 @@ public class EditarLancamentoUseCase {
                 salvo.getData(),
                 salvo.getConta(),
                 salvo.getCategoria(),
-                salvo.getStatus()
+                salvo.getStatus(),
+                salvo.getTipo()
         );
     }
 }

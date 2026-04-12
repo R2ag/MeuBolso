@@ -2,7 +2,6 @@ package com.meubolso.financeiro.infrastructure.persistence;
 
 import com.meubolso.financeiro.domain.model.Categoria;
 import com.meubolso.financeiro.domain.repository.CategoriaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +10,6 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-@Repository
 public class InMemoryCategoriaRepository implements CategoriaRepository {
 
     private final Map<String, List<Categoria>> storage = new ConcurrentHashMap<>();
