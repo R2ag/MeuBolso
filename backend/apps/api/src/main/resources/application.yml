@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+jwt:
+  secret: "ChangeThisSecretToAStrongValue"
+  expiration-seconds: 3600
+
+spring:
+  application:
+    name: meubolso-api

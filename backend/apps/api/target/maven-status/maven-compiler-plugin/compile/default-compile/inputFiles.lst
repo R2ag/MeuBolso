@@ -1,0 +1,8 @@
+/home/rafael/Documentos/Workspace/MeuBolso/backend/apps/api/src/main/java/com/meubolso/api/security/JwtTokenProvider.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/apps/api/src/main/java/com/meubolso/api/security/SecurityConfig.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/apps/api/src/main/java/com/meubolso/api/security/JwtAuthenticationFilter.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/apps/api/src/main/java/com/meubolso/api/web/AuthResponse.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/apps/api/src/main/java/com/meubolso/api/MeuBolsoApplication.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/apps/api/src/main/java/com/meubolso/api/web/AuthController.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/apps/api/src/main/java/com/meubolso/api/web/LoginRequest.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/apps/api/src/main/java/com/meubolso/api/web/LancamentoController.java

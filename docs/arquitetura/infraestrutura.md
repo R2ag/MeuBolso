@@ -96,6 +96,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 * Porta: `8080`
 * Perfil: `dev`
+* Java: `25` via imagem `eclipse-temurin:25-jdk`
 
 ---
 

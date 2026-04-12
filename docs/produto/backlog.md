@@ -29,7 +29,7 @@ Estabelecer a base do monorepo e a arquitetura do backend, garantindo DDD, camad
 - Configurar build do backend para Java 25 / Spring Boot 4.0.5 (ADR-024 e ADR-025)
 
 ### Critérios de aceitação
-- Projeto compila com sucesso
+- Projeto compila com sucesso em Java 25
 - Estrutura de módulos criada
 - API básica rodando localmente
 - Autenticação JWT funcionando

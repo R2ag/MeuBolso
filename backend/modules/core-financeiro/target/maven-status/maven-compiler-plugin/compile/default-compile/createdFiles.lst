@@ -1,0 +1,7 @@
+com/meubolso/financeiro/application/dto/LancamentoResponse.class
+com/meubolso/financeiro/application/dto/LancamentoRequest.class
+com/meubolso/financeiro/application/usecase/ListarLancamentosUseCase.class
+com/meubolso/financeiro/domain/repository/LancamentoRepository.class
+com/meubolso/financeiro/application/usecase/CriarLancamentoUseCase.class
+com/meubolso/financeiro/infrastructure/persistence/InMemoryLancamentoRepository.class
+com/meubolso/financeiro/domain/model/Lancamento.class

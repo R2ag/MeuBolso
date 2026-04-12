@@ -1,0 +1,8 @@
+com/meubolso/api/web/LancamentoController.class
+com/meubolso/api/MeuBolsoApplication.class
+com/meubolso/api/security/JwtAuthenticationFilter.class
+com/meubolso/api/web/AuthResponse.class
+com/meubolso/api/web/AuthController.class
+com/meubolso/api/security/JwtTokenProvider.class
+com/meubolso/api/web/LoginRequest.class
+com/meubolso/api/security/SecurityConfig.class

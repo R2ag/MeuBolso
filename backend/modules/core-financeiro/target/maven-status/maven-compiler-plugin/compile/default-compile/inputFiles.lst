@@ -1,0 +1,7 @@
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/usecase/CriarLancamentoUseCase.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/model/Lancamento.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/repository/LancamentoRepository.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/dto/LancamentoResponse.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/usecase/ListarLancamentosUseCase.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/dto/LancamentoRequest.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/infrastructure/persistence/InMemoryLancamentoRepository.java
