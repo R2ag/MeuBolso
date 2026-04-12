@@ -335,7 +335,7 @@ Lancamento = única fonte do saldo
 
 ---
 
-Você deve registrar decisões como:
+Devem ser registradas decisões como:
 
 ```text
 - uso de monorepo
@@ -344,45 +344,4 @@ Você deve registrar decisões como:
 - uso de PostgreSQL
 ```
 
----
 
-# 🎯 Conclusão
-
-Essa arquitetura garante:
-
----
-
-✅ alinhamento com o domínio
-✅ escalabilidade controlada
-✅ facilidade de manutenção
-✅ base sólida para crescimento
-
----
-
-# 🚀 Próximo passo (recomendado)
-
-Agora você tem:
-
-✔ Domínio
-✔ Casos de uso
-✔ Arquitetura
-
----
-
-👉 Próximo passo ideal:
-
-### 🔥 Criar modelo de dados (SQL + JPA)
-
-ou
-
-### 🔥 Implementar primeiro módulo (Gestão de Obrigações)
-
----
-
-Se quiser, posso seguir com:
-
-✅ Estrutura inicial do projeto Spring (código real)
-✅ Entidades JPA completas
-✅ Primeiro caso de uso implementado
-
-Só me fala 👇
