@@ -12,21 +12,21 @@ Transformar o roadmap e as decisões arquiteturais em um backlog técnico alinha
 Estabelecer a base do monorepo e a arquitetura do backend, garantindo DDD, camadas e isolamento por contexto.
 
 ### Itens
-- Configurar monorepo com módulos:
-  - `core-financeiro`
-  - `gestao-obrigacoes`
-  - `gestao-recebiveis`
-  - `importacao`
-  - `classificacao`
-  - `shared`
-- Criar template de módulo com camadas:
-  - `api`
-  - `application`
-  - `domain`
-  - `infrastructure`
-- Definir contratos de DTOs e APIs iniciais
-- Implementar modelo básico de segurança JWT e `userId` em entidades (ADR-005 e ADR-006)
-- Configurar build do backend para Java 25 / Spring Boot 4.0.5 (ADR-024 e ADR-025)
+- [x] Configurar monorepo com módulos:
+  - [x] `core-financeiro`
+  - [x] `gestao-obrigacoes`
+  - [x] `gestao-recebiveis`
+  - [x] `importacao`
+  - [x] `classificacao`
+  - [x] `shared`
+- [x] Criar template de módulo com camadas:
+  - [x] `api`
+  - [x] `application`
+  - [x] `domain`
+  - [x] `infrastructure`
+- [x] Definir contratos de DTOs e APIs iniciais
+- [x] Implementar modelo básico de segurança JWT e `userId` em entidades (ADR-005 e ADR-006)
+- [x] Configurar build do backend para Java 25 / Spring Boot 4.0.5 (ADR-024 e ADR-025)
 
 ### Critérios de aceitação
 - Projeto compila com sucesso em Java 25
@@ -42,21 +42,22 @@ Estabelecer a base do monorepo e a arquitetura do backend, garantindo DDD, camad
 Implementar o domínio financeiro essencial para registrar receitas e despesas, incluindo as regras de domínio e a interface básica.
 
 ### Itens
-- Modelar entidade `Lancamento`
-- Modelar entidades `Conta` e `Categoria`
-- Implementar casos de uso:
-  - criar lançamento
-  - editar lançamento
-  - excluir lançamento
-  - listar lançamentos
-- Aplicar regras de negócio:
-  - valor ≠ 0
-  - categoria obrigatória
-  - conta obrigatória
-  - tipo definido por valor
-  - edição restrita para lançamentos confirmados
-- Criar controllers REST e DTOs de entrada/saída
-- Implementar filtros por `userId` em todas as queries
+- [x] Modelar entidade `Lancamento`
+- [x] Modelar entidades `Conta` e `Categoria`
+- [x] Implementar casos de uso:
+  - [x] criar lançamento
+  - [x] editar lançamento
+  - [x] excluir lançamento
+  - [x] listar lançamentos
+- [x] Aplicar regras de negócio:
+  - [x] valor ≠ 0
+  - [x] categoria obrigatória
+  - [x] conta obrigatória
+  - [x] tipo definido por valor
+  - [x] edição restrita para lançamentos confirmados
+- [x] Criar controllers REST e DTOs de entrada/saída
+- [x] Implementar filtros por `userId` em todas as queries
+- [x] Adicionar testes de validação de domínio e persistência
 
 ### Critérios de aceitação
 - CRUD de lançamentos testado
