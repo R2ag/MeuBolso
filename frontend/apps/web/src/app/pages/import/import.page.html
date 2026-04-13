@@ -1,0 +1,72 @@
+<section class="import-page">
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">Fluxo de importação</p>
+      <h1>Importação e revisão</h1>
+      <p class="subtitle">Revise transações em staging antes de confirmar a criação de lançamentos.</p>
+    </div>
+    <button
+      pButton
+      type="button"
+      label="Confirmar importação"
+      class="confirm-button"
+      [disabled]="!hasStaging || imported()"
+      (click)="confirmImport()"
+    ></button>
+  </div>
+
+  <div class="import-grid">
+    <section class="import-panel">
+      <h2>Upload / imagem de transações</h2>
+      <p>Cole o conteúdo do CSV ou OFX e clique em visualizar para gerar a lista de staging.</p>
+
+      <textarea
+        rows="10"
+        [(ngModel)]="uploadText"
+        placeholder="2026-04-10;Assinatura de software;-249.90;Tecnologia"
+        class="file-input"
+      ></textarea>
+
+      <button pButton type="button" label="Visualizar staging" class="preview-button" (click)="preview()"></button>
+    </section>
+
+    <section class="preview-panel">
+      <header class="preview-header">
+        <div>
+          <h2>Preview de staging</h2>
+          <p>As correções ainda não foram aplicadas. A confirmação gera o próximo passo.</p>
+        </div>
+        <span class="status-chip" [class.ready]="hasStaging" [class.done]="imported()">
+          {{ imported() ? 'Importação confirmada' : hasStaging ? 'Pronto para confirmar' : 'Aguardando preview' }}
+        </span>
+      </header>
+
+      <div *ngIf="staging().length; else noItems" class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>Categoria</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of staging()">
+              <td>{{ item.date }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.amount }}</td>
+              <td>{{ item.category }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ng-template #noItems>
+        <div class="empty-state">
+          <p>Nenhuma transação em staging. Use o preview para mostrar os registros.</p>
+        </div>
+      </ng-template>
+    </section>
+  </div>
+</section>

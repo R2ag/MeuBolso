@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [BrowserAnimationsModule, RouterOutlet],
+  imports: [BrowserAnimationsModule, RouterOutlet, RouterLink],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
 export class App {
-  protected readonly title = signal('web');
+  protected readonly title = signal('MeuBolso');
 }

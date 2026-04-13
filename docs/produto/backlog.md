@@ -146,7 +146,7 @@ Construir a primeira camada de interface usando Angular 21 e PrimeNG, com foco e
 - [ ] Implementar telas básicas:
   - [ ] login/autenticação
   - [ ] lançamentos
-  - [ ] importação
+  - [x] importação
   - [ ] orçamento
   - [ ] dívidas
 - [ ] Rodar frontend em modo dev com hot reload (ADR-021)

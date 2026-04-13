@@ -1,0 +1,146 @@
+.import-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: 1rem;
+  background: var(--surface-card);
+  box-shadow: var(--shadow-soft);
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--text-strong);
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: var(--text-secondary);
+  max-width: 36rem;
+}
+
+.import-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.import-panel,
+.preview-panel {
+  background: var(--surface-card);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.import-panel h2,
+.preview-panel h2 {
+  margin-top: 0;
+}
+
+.file-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface-block);
+  color: var(--text-strong);
+  padding: 1rem;
+  resize: vertical;
+  font: inherit;
+  margin-top: 1rem;
+}
+
+.preview-button,
+.confirm-button {
+  margin-top: 1rem;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 12rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  color: var(--text-inverse);
+  background: var(--accent-muted);
+  font-weight: 600;
+}
+
+.status-chip.ready {
+  background: var(--success-muted);
+  color: var(--success-text);
+}
+
+.status-chip.done {
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 36rem;
+}
+
+thead {
+  background: var(--surface-muted);
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+td {
+  color: var(--text-strong);
+}
+
+.empty-state {
+  padding: 2rem;
+  color: var(--text-secondary);
+  border: 1px dashed var(--border);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .import-grid {
+    grid-template-columns: 1fr 1.25fr;
+  }
+}
