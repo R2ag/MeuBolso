@@ -1,0 +1,56 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:18
+    container_name: meubolso-db
+    restart: always
+    environment:
+      POSTGRES_DB: meubolso
+      POSTGRES_USER: meubolso
+      POSTGRES_PASSWORD: meubolso
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - meubolso_network
+
+  backend:
+    build: 
+      context: ../
+      dockerfile: infra/docker/backend/Dockerfile
+    container_name: meubolso-backend
+    depends_on:
+      - db
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/meubolso
+      SPRING_DATASOURCE_USERNAME: meubolso
+      SPRING_DATASOURCE_PASSWORD: meubolso
+    ports:
+      - "8080:8080"
+    networks:
+      - meubolso_network
+
+  frontend:
+    build: 
+      context: ../
+      dockerfile: infra/docker/frontend/Dockerfile
+    container_name: meubolso-frontend
+    depends_on:
+      - backend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ../frontend/apps:/app/apps
+      - ../frontend/libs:/app/libs
+    networks:
+      - meubolso_network
+
+volumes:
+  db_data:
+
+networks:
+  meubolso_network:
+    driver: bridge

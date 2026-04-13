@@ -40,21 +40,15 @@ build/
 # Node / Angular
 node_modules/
 **/node_modules/
-frontend/apps/web/node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
 /dist
 **/dist
-frontend/apps/web/dist/
-/out
-**/out
 /.angular
-frontend/apps/web/.angular
+**/.angular/
+.nx/
 
 # IDEs and editors
 .vscode/

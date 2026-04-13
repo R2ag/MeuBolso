@@ -164,14 +164,14 @@ Construir a primeira camada de interface usando Angular 21 e PrimeNG, com foco e
 Garantir ambiente local padronizado com os três containers principais e configuração via variáveis de ambiente.
 
 ### Itens
-- Criar `docker-compose.yml` para:
+- [x] Criar `docker-compose.yml` para:
   - backend
   - frontend
   - PostgreSQL 18
-- Usar volumes para persistência de dados (ADR-017)
-- Conectar serviços pela rede interna Docker Compose (ADR-022)
-- Configurar variáveis de ambiente para banco e perfis (ADR-018 e ADR-019)
-- Gerar JAR do backend e executar no container (ADR-020)
+- [x] Usar volumes para persistência de dados (ADR-017)
+- [x] Conectar serviços pela rede interna Docker Compose (ADR-022)
+- [x] Configurar variáveis de ambiente para banco e perfis (ADR-018 e ADR-019)
+- [x] Gerar JAR do backend e executar no container (ADR-020)
 
 ### Critérios de aceitação
 - `docker compose up` inicia todos os serviços
