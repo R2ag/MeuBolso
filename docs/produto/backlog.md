@@ -141,15 +141,15 @@ Implementar classificação automática com regras, histórico e similaridade, s
 Construir a primeira camada de interface usando Angular 21 e PrimeNG, com foco em produtividade e consistência visual.
 
 ### Itens
-- Configurar aplicação Angular 21
-- Adotar PrimeNG + design tokens (ADR-007 e ADR-008)
-- Implementar telas básicas:
-  - login/autenticação
-  - lançamentos
-  - importação
-  - orçamento
-  - dívidas
-- Rodar frontend em modo dev com hot reload (ADR-021)
+- [x] Configurar aplicação Angular 21
+- [ ] Adotar PrimeNG + design tokens (ADR-007 e ADR-008)
+- [ ] Implementar telas básicas:
+  - [ ] login/autenticação
+  - [ ] lançamentos
+  - [ ] importação
+  - [ ] orçamento
+  - [ ] dívidas
+- [ ] Rodar frontend em modo dev com hot reload (ADR-021)
 
 ### Critérios de aceitação
 - Frontend comunica com backend
