@@ -76,7 +76,7 @@ Construir pipeline de importação com staging obrigatório antes de criar lanç
 - [x] Criar entidade `Importacao` e `TransacaoStaging`
 - [x] Implementar parsing e normalização de transações
 - [x] Realizar deduplicação de transações
-- Construir fluxo:
+- [x] Construir fluxo:
   - arquivo → importacao → staging → classificacao → revisao → lancamento
 - [x] Exibir preview de transações em staging
 - [x] Confirmar importação para gerar lançamentos
@@ -186,7 +186,7 @@ Adicionar testes e validações para garantir estabilidade e aderência ao model
 
 ### Itens
 - Implementar testes unitários para casos de uso backend
-- Criar testes de integração para fluxo de importação e lançamentos
+- [x] Criar testes de integração para fluxo de importação e lançamentos
 - Validar regras de domínio e filtros de `userId`
 - Revisar compatibilidade com Java 25, Spring Boot 4 e PostgreSQL 18
 

@@ -17,8 +17,9 @@ public class InMemoryTransacaoStagingRepository implements TransacaoStagingRepos
 
     @Override
     public TransacaoStaging save(TransacaoStaging transacaoStaging) {
-        storage.computeIfAbsent(transacaoStaging.getImportacaoId(), id -> new ArrayList<>())
-                .add(transacaoStaging);
+        List<TransacaoStaging> transacoes = storage.computeIfAbsent(transacaoStaging.getImportacaoId(), id -> new ArrayList<>());
+        transacoes.removeIf(existing -> existing.getId().equals(transacaoStaging.getId()));
+        transacoes.add(transacaoStaging);
         return transacaoStaging;
     }
 
