@@ -1,9 +1,15 @@
 <div class="app-shell">
-  <header class="app-header">
+  <header class="app-header" *ngIf="!isLoginPage">
     <div class="brand">MeuBolso</div>
     <nav class="app-nav">
-      <a routerLink="/import" class="app-link">Importação</a>
+      <a routerLink="/lancamentos" class="app-link" routerLinkActive="active">Lançamentos</a>
+      <a routerLink="/import" class="app-link" routerLinkActive="active">Importação</a>
+      <a routerLink="/orcamento" class="app-link" routerLinkActive="active">Orçamento</a>
+      <a routerLink="/dividas" class="app-link" routerLinkActive="active">Dívidas</a>
     </nav>
+    <div class="app-actions">
+      <a routerLink="/login" class="app-link logout-link">Sair</a>
+    </div>
   </header>
 
   <main class="app-main">

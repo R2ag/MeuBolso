@@ -142,14 +142,14 @@ Construir a primeira camada de interface usando Angular 21 e PrimeNG, com foco e
 
 ### Itens
 - [x] Configurar aplicação Angular 21
-- [ ] Adotar PrimeNG + design tokens (ADR-007 e ADR-008)
-- [ ] Implementar telas básicas:
-  - [ ] login/autenticação
-  - [ ] lançamentos
+- [x] Adotar PrimeNG + design tokens (ADR-007 e ADR-008)
+- [x] Implementar telas básicas:
+  - [x] login/autenticação
+  - [x] lançamentos
   - [x] importação
-  - [ ] orçamento
-  - [ ] dívidas
-- [ ] Rodar frontend em modo dev com hot reload (ADR-021)
+  - [x] orçamento
+  - [x] dívidas
+- [x] Rodar frontend em modo dev com hot reload (ADR-021)
 
 ### Critérios de aceitação
 - Frontend comunica com backend

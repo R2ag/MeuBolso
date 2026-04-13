@@ -1,0 +1,52 @@
+<section class="page-container">
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">Gestão de Passivos</p>
+      <h1>Dívidas</h1>
+      <p class="subtitle">Acompanhe seus financiamentos, empréstimos e parcelamentos estruturados.</p>
+    </div>
+    <div class="actions">
+      <button pButton type="button" label="Nova Dívida" class="p-button-warning"></button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <p-table [value]="dividas()" responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Descrição</th>
+          <th>Progresso (Parcelas)</th>
+          <th>Restantes</th>
+          <th style="text-align: right">Valor Total</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-divida>
+        <tr>
+          <td><strong>{{ divida.descricao }}</strong></td>
+          <td>
+            <div class="progress-details">
+              {{ divida.parcelasPagas }} / {{ divida.parcelasTotal }}
+            </div>
+          </td>
+          <td>{{ divida.parcelasTotal - divida.parcelasPagas }} parcelas</td>
+          <td style="text-align: right">{{ divida.valorTotal | currency:'BRL' }}</td>
+          <td>
+            <span class="status-badge" [class.quitada]="divida.status === 'QUITADA'" [class.ativa]="divida.status === 'ATIVA'">
+              {{ divida.status }}
+            </span>
+          </td>
+          <td style="text-align: center">
+            <button pButton type="button" icon="pi pi-search" class="p-button-text p-button-sm"></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="6" class="empty-message">Nenhuma dívida registrada.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .eyebrow {
+    color: var(--color-warning);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    margin: 0 0 var(--spacing-1);
+  }
+
+  h1 {
+    margin: 0 0 var(--spacing-1);
+    color: var(--color-text);
+  }
+
+  .subtitle {
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+}
+
+.table-container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+
+  &.ativa {
+    background-color: var(--color-warning);
+    color: #fff;
+  }
+
+  &.quitada {
+    background-color: var(--color-success);
+    color: #fff;
+  }
+}
+
+.progress-details {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+}
