@@ -98,13 +98,13 @@ Implementar orçamento e dívidas, mantendo a separação entre planejado e real
 - Criar entidades `Orcamento`, `ContaPagar`, `ContaReceber`, `Divida`, `Parcela`
 - Implementar casos de uso:
   - definir orçamento por mês/categoria
-  - acompanhar orçamento realizado vs planejado
+  - [x] acompanhar orçamento realizado vs planejado
   - [x] criar conta a pagar
   - [x] criar conta a receber
   - [x] listar contas a pagar/receber
   - [x] criar dívida e gerar parcelas
   - [x] pagar parcela e gerar lançamento
-- Estabelecer lógica de projeção de saldo:
+- [x] Estabelecer lógica de projeção de saldo:
   - saldo atual + entradas futuras - saídas futuras
 
 ### Critérios de aceitação

@@ -1,6 +1,7 @@
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/dto/DividaRequest.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/model/Conta.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/model/ContaReceber.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/usecase/AcompanharOrcamentoUseCase.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/infrastructure/persistence/SpringDataCategoriaRepository.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/repository/CategoriaRepository.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/repository/ContaReceberRepository.java
@@ -30,6 +31,7 @@
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/infrastructure/persistence/InMemoryOrcamentoRepository.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/dto/ContaPagarResponse.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/usecase/ListarLancamentosUseCase.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/dto/OrcamentoResumoResponse.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/usecase/ExcluirCategoriaUseCase.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/repository/DividaRepository.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/dto/PagarParcelaRequest.java
@@ -46,12 +48,15 @@
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/infrastructure/persistence/JpaLancamentoRepositoryAdapter.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/usecase/ListarContasPagarUseCase.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/infrastructure/persistence/InMemoryCategoriaRepository.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/dto/AcompanharOrcamentoRequest.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/model/Lancamento.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/dto/CategoriaResponse.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/usecase/CriarContaReceberUseCase.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/infrastructure/persistence/CategoriaEntity.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/usecase/CalcularProjecaoSaldoUseCase.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/infrastructure/persistence/InMemoryLancamentoRepository.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/repository/ContaRepository.java
+/home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/application/dto/ProjecaoSaldoResponse.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/model/ParcelaStatus.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/domain/model/ContaPagar.java
 /home/rafael/Documentos/Workspace/MeuBolso/backend/modules/core-financeiro/src/main/java/com/meubolso/financeiro/infrastructure/persistence/ContaEntity.java

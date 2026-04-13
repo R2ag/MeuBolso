@@ -29,6 +29,7 @@ com/meubolso/financeiro/application/usecase/ExcluirCategoriaUseCase.class
 com/meubolso/financeiro/application/usecase/ExcluirContaUseCase.class
 com/meubolso/financeiro/application/dto/ContaResponse.class
 com/meubolso/financeiro/application/usecase/CriarLancamentoUseCase.class
+com/meubolso/financeiro/application/usecase/CalcularProjecaoSaldoUseCase.class
 com/meubolso/financeiro/infrastructure/persistence/JpaLancamentoRepositoryAdapter.class
 com/meubolso/financeiro/application/dto/CategoriaRequest.class
 com/meubolso/financeiro/infrastructure/persistence/JpaContaRepositoryAdapter.class
