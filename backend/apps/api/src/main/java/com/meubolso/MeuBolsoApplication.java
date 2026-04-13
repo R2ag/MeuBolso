@@ -1,9 +1,9 @@
-package com.meubolso.api;
+package com.meubolso;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"com.meubolso.api", "com.meubolso.financeiro", "com.meubolso.importacao", "com.meubolso.classificacao", "com.meubolso.shared"})
+@SpringBootApplication
 public class MeuBolsoApplication {
 
     public static void main(String[] args) {

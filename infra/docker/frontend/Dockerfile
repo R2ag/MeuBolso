@@ -1,14 +1,16 @@
 FROM node:24
 
-WORKDIR /app
+# O diretório do projeto onde o package.json fica
+WORKDIR /app/apps/web
 
-# Copia do front para que as pastas do host (apps/ e libs/) fiquem no container do dev
-COPY frontend/package.json frontend/package-lock.json ./
+# Copia dos pacotes do angular/node nativos do web app
+COPY frontend/apps/web/package.json frontend/apps/web/package-lock.json ./
 RUN npm install
 
-COPY frontend/ .
+# Cópia residual - arquivos de código (no live-reload, serão sobresscritos via Volume)
+COPY frontend/apps/web/ .
 
 EXPOSE 4200
 
-# Rodando o angular cli local do node_modules no modo start, e adicionando host 0.0.0.0 para ser acessível do hospedeiro
-CMD ["npm", "run", "start", "--", "--host", "0.0.0.0"]
+# Iniciando ambiente Node para Angular
+CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--poll", "2000"]
