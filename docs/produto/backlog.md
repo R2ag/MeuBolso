@@ -99,10 +99,11 @@ Implementar orçamento e dívidas, mantendo a separação entre planejado e real
 - Implementar casos de uso:
   - definir orçamento por mês/categoria
   - acompanhar orçamento realizado vs planejado
-  - criar conta a pagar
-  - criar conta a receber
-  - criar dívida e gerar parcelas
-  - pagar parcela e gerar lançamento
+  - [x] criar conta a pagar
+  - [x] criar conta a receber
+  - [x] listar contas a pagar/receber
+  - [x] criar dívida e gerar parcelas
+  - [x] pagar parcela e gerar lançamento
 - Estabelecer lógica de projeção de saldo:
   - saldo atual + entradas futuras - saídas futuras
 
