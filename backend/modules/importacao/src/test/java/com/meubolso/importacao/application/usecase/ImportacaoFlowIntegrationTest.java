@@ -8,6 +8,8 @@ import com.meubolso.importacao.domain.model.Importacao;
 import com.meubolso.importacao.domain.model.ImportacaoStatus;
 import com.meubolso.importacao.domain.model.TransacaoStaging;
 import com.meubolso.importacao.domain.model.TransacaoStagingStatus;
+import com.meubolso.classificacao.domain.service.ClassificacaoService;
+import com.meubolso.classificacao.infrastructure.persistence.InMemoryClassificacaoHistoricoRepository;
 import com.meubolso.importacao.infrastructure.persistence.InMemoryImportacaoRepository;
 import com.meubolso.importacao.infrastructure.persistence.InMemoryTransacaoStagingRepository;
 import com.meubolso.shared.security.UserContext;
@@ -43,7 +45,8 @@ class ImportacaoFlowIntegrationTest {
         ImportacaoParser parser = new ImportacaoParser();
 
         importarTransacoesUseCase = new ImportarTransacoesUseCase(importacaoRepository, stagingRepository, parser);
-        listarTransacoesStagingUseCase = new ListarTransacoesStagingUseCase(stagingRepository);
+        ClassificacaoService classificacaoService = new ClassificacaoService(new InMemoryClassificacaoHistoricoRepository());
+        listarTransacoesStagingUseCase = new ListarTransacoesStagingUseCase(stagingRepository, classificacaoService);
         classificarTransacaoStagingUseCase = new ClassificarTransacaoStagingUseCase(stagingRepository, userContext);
         revisarImportacaoUseCase = new RevisarImportacaoUseCase(importacaoRepository, stagingRepository, userContext);
         confirmarImportacaoUseCase = new ConfirmarImportacaoUseCase(importacaoRepository, stagingRepository, lancamentoRepository);

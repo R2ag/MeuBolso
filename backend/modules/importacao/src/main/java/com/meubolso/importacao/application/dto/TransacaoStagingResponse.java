@@ -13,11 +13,19 @@ public class TransacaoStagingResponse {
     private String conta;
     private String categoria;
     private String status;
+    private String categoriaSugestao;
+    private Double confiancaSugestao;
+    private String fonteSugestao;
 
     public TransacaoStagingResponse() {
     }
 
     public TransacaoStagingResponse(UUID id, String descricao, BigDecimal valor, LocalDate data, String conta, String categoria, String status) {
+        this(id, descricao, valor, data, conta, categoria, status, null, null, null);
+    }
+
+    public TransacaoStagingResponse(UUID id, String descricao, BigDecimal valor, LocalDate data, String conta, String categoria, String status,
+                                    String categoriaSugestao, Double confiancaSugestao, String fonteSugestao) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
@@ -25,6 +33,9 @@ public class TransacaoStagingResponse {
         this.conta = conta;
         this.categoria = categoria;
         this.status = status;
+        this.categoriaSugestao = categoriaSugestao;
+        this.confiancaSugestao = confiancaSugestao;
+        this.fonteSugestao = fonteSugestao;
     }
 
     public String getStatus() {
@@ -53,5 +64,17 @@ public class TransacaoStagingResponse {
 
     public String getCategoria() {
         return categoria;
+    }
+
+    public String getCategoriaSugestao() {
+        return categoriaSugestao;
+    }
+
+    public Double getConfiancaSugestao() {
+        return confiancaSugestao;
+    }
+
+    public String getFonteSugestao() {
+        return fonteSugestao;
     }
 }

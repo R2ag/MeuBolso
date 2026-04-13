@@ -97,7 +97,7 @@ Implementar orçamento e dívidas, mantendo a separação entre planejado e real
 ### Itens
 - Criar entidades `Orcamento`, `ContaPagar`, `ContaReceber`, `Divida`, `Parcela`
 - Implementar casos de uso:
-  - definir orçamento por mês/categoria
+  - [x] definir orçamento por mês/categoria
   - [x] acompanhar orçamento realizado vs planejado
   - [x] criar conta a pagar
   - [x] criar conta a receber
@@ -121,11 +121,11 @@ Implementar classificação automática com regras, histórico e similaridade, s
 
 ### Itens
 - Criar motor de classificação com:
-  - regras explícitas
-  - histórico de classificações
-  - similaridade de descrição/parte
-- Calcular score de confiança para sugestões
-- Adicionar correção manual e aprendizado contínuo
+  - [x] regras explícitas
+  - [x] histórico de classificações
+  - [x] similaridade de descrição/parte
+- [x] Calcular score de confiança para sugestões
+- [x] Adicionar correção manual e aprendizado contínuo
 - Integrar com fluxo de importação e revisão
 
 ### Critérios de aceitação

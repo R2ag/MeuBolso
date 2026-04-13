@@ -1,7 +1,10 @@
 package com.meubolso.importacao.application.usecase;
 
+import com.meubolso.classificacao.domain.model.ClassificacaoSugestao;
+import com.meubolso.classificacao.domain.service.ClassificacaoService;
 import com.meubolso.importacao.application.dto.TransacaoStagingResponse;
 import com.meubolso.importacao.domain.model.TransacaoStaging;
+import com.meubolso.importacao.domain.model.TransacaoStagingStatus;
 import com.meubolso.importacao.domain.repository.TransacaoStagingRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +16,11 @@ import java.util.stream.Collectors;
 public class ListarTransacoesStagingUseCase {
 
     private final TransacaoStagingRepository stagingRepository;
+    private final ClassificacaoService classificacaoService;
 
-    public ListarTransacoesStagingUseCase(TransacaoStagingRepository stagingRepository) {
+    public ListarTransacoesStagingUseCase(TransacaoStagingRepository stagingRepository, ClassificacaoService classificacaoService) {
         this.stagingRepository = stagingRepository;
+        this.classificacaoService = classificacaoService;
     }
 
     public List<TransacaoStagingResponse> listar(UUID importacaoId, String userId) {
@@ -28,15 +33,24 @@ public class ListarTransacoesStagingUseCase {
 
         return stagingRepository.findByImportacaoId(importacaoId).stream()
                 .filter(transacao -> userId.equals(transacao.getUserId()))
-                .map(transacao -> new TransacaoStagingResponse(
-                        transacao.getId(),
-                        transacao.getDescricao(),
-                        transacao.getValor(),
-                        transacao.getData(),
-                        transacao.getConta(),
-                        transacao.getCategoria(),
-                        transacao.getStatus().name()
-                ))
+                .map(transacao -> {
+                    ClassificacaoSugestao sugestao = null;
+                    if (transacao.getStatus() == TransacaoStagingStatus.PENDENTE || "Sem categoria".equalsIgnoreCase(transacao.getCategoria())) {
+                        sugestao = classificacaoService.sugerir(userId, transacao.getDescricao(), transacao.getConta());
+                    }
+                    return new TransacaoStagingResponse(
+                            transacao.getId(),
+                            transacao.getDescricao(),
+                            transacao.getValor(),
+                            transacao.getData(),
+                            transacao.getConta(),
+                            transacao.getCategoria(),
+                            transacao.getStatus().name(),
+                            sugestao != null ? sugestao.getCategoria() : null,
+                            sugestao != null ? sugestao.getConfianca() : null,
+                            sugestao != null ? sugestao.getFonte() : null
+                    );
+                })
                 .collect(Collectors.toList());
     }
 }
