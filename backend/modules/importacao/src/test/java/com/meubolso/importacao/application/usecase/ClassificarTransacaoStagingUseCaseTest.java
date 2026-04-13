@@ -1,5 +1,6 @@
 package com.meubolso.importacao.application.usecase;
 
+import com.meubolso.classificacao.application.usecase.RegistrarCorrecaoClassificacaoUseCase;
 import com.meubolso.importacao.application.dto.AtualizarTransacaoStagingRequest;
 import com.meubolso.importacao.application.dto.TransacaoStagingResponse;
 import com.meubolso.importacao.domain.model.TransacaoStaging;
@@ -21,13 +22,15 @@ class ClassificarTransacaoStagingUseCaseTest {
 
     private TransacaoStagingRepository stagingRepository;
     private UserContext userContext;
+    private RegistrarCorrecaoClassificacaoUseCase registrarCorrecaoClassificacaoUseCase;
     private ClassificarTransacaoStagingUseCase useCase;
 
     @BeforeEach
     void setUp() {
         stagingRepository = mock(TransacaoStagingRepository.class);
         userContext = mock(UserContext.class);
-        useCase = new ClassificarTransacaoStagingUseCase(stagingRepository, userContext);
+        registrarCorrecaoClassificacaoUseCase = mock(RegistrarCorrecaoClassificacaoUseCase.class);
+        useCase = new ClassificarTransacaoStagingUseCase(stagingRepository, userContext, registrarCorrecaoClassificacaoUseCase);
     }
 
     @Test
@@ -52,5 +55,6 @@ class ClassificarTransacaoStagingUseCaseTest {
         assertEquals("Compras", response.getCategoria());
         assertEquals(TransacaoStagingStatus.CLASSIFICADA.name(), response.getStatus());
         verify(stagingRepository).save(any(TransacaoStaging.class));
+        verify(registrarCorrecaoClassificacaoUseCase).registrar(any());
     }
 }

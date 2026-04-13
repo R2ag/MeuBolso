@@ -1,5 +1,7 @@
 package com.meubolso.importacao.application.usecase;
 
+import com.meubolso.classificacao.application.dto.RegistrarCorrecaoRequest;
+import com.meubolso.classificacao.application.usecase.RegistrarCorrecaoClassificacaoUseCase;
 import com.meubolso.importacao.application.dto.AtualizarTransacaoStagingRequest;
 import com.meubolso.importacao.application.dto.TransacaoStagingResponse;
 import com.meubolso.importacao.domain.model.TransacaoStaging;
@@ -14,10 +16,14 @@ public class ClassificarTransacaoStagingUseCase {
 
     private final TransacaoStagingRepository stagingRepository;
     private final UserContext userContext;
+    private final RegistrarCorrecaoClassificacaoUseCase registrarCorrecaoClassificacaoUseCase;
 
-    public ClassificarTransacaoStagingUseCase(TransacaoStagingRepository stagingRepository, UserContext userContext) {
+    public ClassificarTransacaoStagingUseCase(TransacaoStagingRepository stagingRepository,
+                                             UserContext userContext,
+                                             RegistrarCorrecaoClassificacaoUseCase registrarCorrecaoClassificacaoUseCase) {
         this.stagingRepository = stagingRepository;
         this.userContext = userContext;
+        this.registrarCorrecaoClassificacaoUseCase = registrarCorrecaoClassificacaoUseCase;
     }
 
     public TransacaoStagingResponse classificar(UUID importacaoId, UUID transacaoId, AtualizarTransacaoStagingRequest request) {
@@ -42,8 +48,21 @@ public class ClassificarTransacaoStagingUseCase {
             throw new IllegalArgumentException("Transação não pertence à importação informada");
         }
 
-        TransacaoStaging atualizada = transacao.classificar(request.getDescricao(), request.getConta(), request.getCategoria());
+        String categoriaCorrigida = request.getCategoria() == null || request.getCategoria().isBlank()
+                ? transacao.getCategoria()
+                : request.getCategoria();
+
+        TransacaoStaging atualizada = transacao.classificar(request.getDescricao(), request.getConta(), categoriaCorrigida);
         stagingRepository.save(atualizada);
+
+        if (!categoriaCorrigida.equals(transacao.getCategoria())) {
+            RegistrarCorrecaoRequest historicoRequest = new RegistrarCorrecaoRequest();
+            historicoRequest.setUserId(userId);
+            historicoRequest.setDescricao(atualizada.getDescricao());
+            historicoRequest.setContraparte(atualizada.getConta());
+            historicoRequest.setCategoriaCorrigida(categoriaCorrigida);
+            registrarCorrecaoClassificacaoUseCase.registrar(historicoRequest);
+        }
 
         return new TransacaoStagingResponse(
                 atualizada.getId(),

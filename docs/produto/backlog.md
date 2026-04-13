@@ -126,7 +126,7 @@ Implementar classificação automática com regras, histórico e similaridade, s
   - [x] similaridade de descrição/parte
 - [x] Calcular score de confiança para sugestões
 - [x] Adicionar correção manual e aprendizado contínuo
-- Integrar com fluxo de importação e revisão
+- [x] Integrar com fluxo de importação e revisão
 
 ### Critérios de aceitação
 - Transações recebidas recebem sugestão de categoria

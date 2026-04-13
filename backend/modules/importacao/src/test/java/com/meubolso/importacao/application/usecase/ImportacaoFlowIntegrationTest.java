@@ -8,6 +8,7 @@ import com.meubolso.importacao.domain.model.Importacao;
 import com.meubolso.importacao.domain.model.ImportacaoStatus;
 import com.meubolso.importacao.domain.model.TransacaoStaging;
 import com.meubolso.importacao.domain.model.TransacaoStagingStatus;
+import com.meubolso.classificacao.application.usecase.RegistrarCorrecaoClassificacaoUseCase;
 import com.meubolso.classificacao.domain.service.ClassificacaoService;
 import com.meubolso.classificacao.infrastructure.persistence.InMemoryClassificacaoHistoricoRepository;
 import com.meubolso.importacao.infrastructure.persistence.InMemoryImportacaoRepository;
@@ -47,7 +48,8 @@ class ImportacaoFlowIntegrationTest {
         importarTransacoesUseCase = new ImportarTransacoesUseCase(importacaoRepository, stagingRepository, parser);
         ClassificacaoService classificacaoService = new ClassificacaoService(new InMemoryClassificacaoHistoricoRepository());
         listarTransacoesStagingUseCase = new ListarTransacoesStagingUseCase(stagingRepository, classificacaoService);
-        classificarTransacaoStagingUseCase = new ClassificarTransacaoStagingUseCase(stagingRepository, userContext);
+        RegistrarCorrecaoClassificacaoUseCase registrarCorrecaoClassificacaoUseCase = new RegistrarCorrecaoClassificacaoUseCase(new InMemoryClassificacaoHistoricoRepository());
+        classificarTransacaoStagingUseCase = new ClassificarTransacaoStagingUseCase(stagingRepository, userContext, registrarCorrecaoClassificacaoUseCase);
         revisarImportacaoUseCase = new RevisarImportacaoUseCase(importacaoRepository, stagingRepository, userContext);
         confirmarImportacaoUseCase = new ConfirmarImportacaoUseCase(importacaoRepository, stagingRepository, lancamentoRepository);
     }
